@@ -1,0 +1,42 @@
+<div>
+  <h1>Formulario Básico</h1>
+  <br />
+  <h3>1. Nombre</h3>
+  <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Escribe tu nombre" />
+
+  <h3>2. Genero</h3>
+  <label>
+    <input type="radio" name="genero" value="Femenino" [(ngModel)]="genero" />
+    Femenino
+  </label>
+  <label>
+  <input type="radio" name="genero" value="Masculino" [(ngModel)]="genero" />
+    Masculino
+  </label>
+  <br />
+
+  <h3>3. Hobbies </h3>
+  <textarea
+    name="hobbies"
+    [(ngModel)]="hobbies"
+    (input)="procesarHobbies()"
+    placeholder="Ingresa tus hobbies"
+    rows="3"
+  ></textarea>
+ <!-- <div>
+    <table>
+      <tr>
+        <td>
+          @for (hobbie of hobbiesArray; track hobbie) {
+            <tr>
+              <td>
+
+              </td>
+            </tr>
+          }
+
+        </td>
+      </tr>
+    </table>
+  </div>-->
+</div>

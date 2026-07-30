@@ -1,0 +1,90 @@
+<div class="form-container">
+  <h2>➕ Agregar Nueva Receta</h2>
+
+  <form (submit)="onSubmit()" #recipeForm="ngForm">
+
+    <!-- Nombre -->
+    <div class="form-group">
+      <label for="name">Nombre *</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="formData.name"
+        placeholder="Ej: Pasta Carbonara"
+        required>
+    </div>
+
+    <!-- Descripción -->
+    <div class="form-group">
+      <label for="description">Descripción *</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="formData.description"
+        placeholder="Describe brevemente la receta"
+        rows="3"
+        required></textarea>
+    </div>
+
+    <!-- Tiempo y Porciones -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="prepTime">Tiempo (min) *</label>
+        <input
+          type="number"
+          id="prepTime"
+          name="prepTime"
+          [(ngModel)]="formData.prepTime"
+          min="0"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="servings">Porciones *</label>
+        <input
+          type="number"
+          id="servings"
+          name="servings"
+          [(ngModel)]="formData.servings"
+          min="1"
+          required>
+      </div>
+    </div>
+
+    <!-- Dificultad -->
+    <div class="form-group">
+      <label for="difficulty">Dificultad</label>
+      <select
+        id="difficulty"
+        name="difficulty"
+        [(ngModel)]="formData.difficulty">
+        <option value="Fácil">Fácil</option>
+        <option value="Media">Media</option>
+        <option value="Difícil">Difícil</option>
+      </select>
+    </div>
+
+    <!-- URL Imagen (opcional) -->
+    <div class="form-group">
+      <label for="imageUrl">URL de Imagen (opcional)</label>
+      <input
+        type="url"
+        id="imageUrl"
+        name="imageUrl"
+        [(ngModel)]="formData.imageUrl"
+        placeholder="https://ejemplo.com/imagen.jpg">
+    </div>
+
+    <!-- Botones -->
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">
+        ✅ Guardar Receta
+      </button>
+      <button type="button" class="btn-secondary" (click)="resetForm()">
+        🔄 Limpiar
+      </button>
+    </div>
+
+  </form>
+</div>

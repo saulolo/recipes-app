@@ -1,6 +1,17 @@
 <div class="container my-3">
   <h1 class="text-center">🍳 Recipes App</h1>
-  <p class="text-center text-muted">Gestión de recetas de cocina</p>
+  <p class="text-center" style="color: #6b7280;">Gestión de recetas de cocina</p>
+  <!-- Formulario: Escucha el evento recipeCreated -->
+  <app-recipe-form (recipeCreated)="onRecipeCreated($event)" />
 
+  <!-- Componente de lista de recetas -->
+  <app-recipe-list [recipes]="recipes()"
+                   (favoriteToggled)="onToggleFavorite($event)" />
+
+  <!-- Router outlet para futuras rutas -->
   <router-outlet />
+
+<!--
+  <app-user-form/>
+-->
 </div>

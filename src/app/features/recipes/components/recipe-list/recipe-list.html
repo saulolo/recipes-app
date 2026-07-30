@@ -1,0 +1,25 @@
+<h2>📋 Mis Recetas ({{ recipes().length }})</h2>
+
+<div class="grid">
+  @for (recipe of recipes(); track recipe.id) {
+    <div class="card">
+      <img [src]="recipe.imageUrl" [alt]="recipe.name">
+
+      <button
+        class="favorite-btn"
+        (click)="toggleFavorite(recipe.id)">
+        {{ recipe.isFavorite ? '⭐' : '☆' }}
+      </button>
+
+      <div class="content">
+        <h3>{{ recipe.name }}</h3>
+        <p>{{ recipe.description }}</p>
+        <div class="meta">
+          <span>⏱️ {{ recipe.prepTime }} min</span>
+          <span>🍽️ {{ recipe.servings }}</span>
+          <span class="badge">{{ recipe.difficulty }}</span>
+        </div>
+      </div>
+    </div>
+  }
+</div>
